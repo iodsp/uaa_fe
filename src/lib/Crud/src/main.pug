@@ -1,0 +1,82 @@
+v-container(fluid )
+  v-layout(row wrap)
+  v-flex(xs12)
+    v-data-table.elevation-1(:headers="headers", :items="items", v-bind:pagination.sync="pagination", :totalItems="totalItems", :rows-per-page-items="[10, 20, 50]"
+    , v-model="selected", :selected-key="selectedKey", select-all)
+      template(slot="headers", scope="props")
+        slot(name="headers", :headers="props.headers", :indeterminate="props.indeterminate", :all="props.all")
+          tr
+            th.column.left
+              v-checkbox(primary. hide-details, @click.native="toggleAll", :input-value="props.all", :indeterminate="props.indeterminate")
+            th.text-xs-left(v-for="header in props.headers", :key="header.text")
+              span.text-xs-left(v-tooltip:bottom="{'html' : header.text}") {{header.text}}
+      template(slot="items" scope="props")
+        slot(name="items", :selected="props.selected", :item="props.item")
+          tr
+            td.column.left()
+              v-checkbox(primary, hide-details, v-model="props.selected")
+            td.text-xs-left(v-for="value, key, index in props.item", v-if="headers.some(item => {if (item.value=== key) {return true} else {return false}})") {{value}}
+    v-speed-dial(v-model="dial", :direction="direction", right, top)
+      v-btn.blue.darken-2(slot="activator",dark,fab,hover,v-model="dial")
+        v-icon() settings
+        v-icon() close
+      v-btn.indigo(fab, dark, small, @click.native="addEntity")
+        v-icon() add
+      v-btn.red(fab, dark, small, :disabled="deleteDisabled", @click.native="deleteEntity")
+        v-icon() delete
+      v-btn.green(fab, dark, small, @click.native="editEntity", :disabled="editDisabled")
+        v-icon() edit
+
+  v-dialog(v-model="addDialog", persistent, width="50%")
+    v-card
+      v-card-title
+        span.headline() 添加{{formConfig.title}}
+      v-card-text
+        v-container(grid-list-md)
+          v-layout(wrap)
+            v-flex(xs12)
+              v-form(v-model="valid" ref="addForm")
+                v-flex(xs12, v-if="item.scope.includes('add')" v-for="item in formConfig.data", :key="item.name")
+                  v-text-field(v-if="item.type==='hidden'", type='hidden',:label="item.title", :hint="item.hint", :rules="addRules[item.name]",
+                  v-model="addEntityInput[item.name]")
+                  v-select(v-else-if="item.type==='multiple_select'", :label="item.title", :hint="item.hint", :rules="addRules[item.name]"
+                  v-bind:items="item.data", multiple, chips, persistent-hint, v-model="addEntityInput[item.name]", @input="change(item, addEntityInput[item.name])")
+                  v-layout(xs12, v-else-if="item.type==='slider'")
+                    v-flex(xs9)
+                      v-slider(:label="item.title", v-bind:max="6000", v-model="addEntityInput[item.name]")
+                    v-flex(xs3)
+                      v-text-field(v-model="addEntityInput[item.name]", type="number")
+                  v-text-field(v-else, :label="item.title", required, :hint="item.hint", :rules="addRules[item.name]",
+                  v-model="addEntityInput[item.name]")
+
+      v-card-actions
+        v-spacer
+        v-btn.blue--text.darken-1(flat, @click.native="addDialog = false") Close
+        v-btn.blue--text.darken-1(flat, @click.native="addEntityDo") Save
+
+  v-dialog(v-model="editDialog", persistent, width="50%")
+    v-card
+      v-card-title
+        span.headline() 编辑{{formConfig.title}}
+      v-card-text
+        v-container(grid-list-md)
+          v-layout(wrap)
+            v-flex(xs12)
+              v-form(v-model="valid" ref="editForm")
+                v-flex(xs12, v-if="item.scope.includes('edit')" v-for="item in formConfig.data", :key="item.name")
+                  v-text-field(v-if="item.type==='hidden'", disabled,:label="item.title", :hint="item.hint", :rules="editRules[item.name]",
+                  v-model="editEntityInput[item.name]")
+                  v-select(v-else-if="item.type==='multiple_select'", :label="item.title", :hint="item.hint", :rules="editRules[item.name]"
+                  v-bind:items="item.data", multiple, chips, persistent-hint, v-model="editEntityInput[item.name]", @input="change(item, editEntityInput[item.name])")
+                  v-layout(xs12, v-else-if="item.type==='slider'")
+                    v-flex(xs9)
+                      v-slider(:label="item.title", v-bind:max="6000", v-model="editEntityInput[item.name]")
+                    v-flex(xs3)
+                      v-text-field(v-model="editEntityInput[item.name]", type="number")
+                  v-text-field(v-else, :label="item.title", required, :hint="item.hint", :rules="editRules[item.name]",
+                  v-model="editEntityInput[item.name]")
+
+      v-card-actions
+        v-spacer
+        v-btn.blue--text.darken-1(flat, @click.native="editDialog = false") Close
+        v-btn.blue--text.darken-1(flat, @click.native="editEntityDo") Save

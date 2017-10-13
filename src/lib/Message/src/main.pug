@@ -1,0 +1,5 @@
+v-alert.el-message(info dismissible v-model="visible",
+  :info="info", :error="error",
+  :warning="warning", :success="success",
+  @mouseenter="clearTimer", @mouseleave="startTimer")
+  slot() {{message}}

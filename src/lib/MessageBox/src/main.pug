@@ -1,0 +1,10 @@
+v-layout(row justify-center)
+  v-dialog(v-model="dialog")
+    v-card
+      v-card-title.headline() {{title}}
+      v-card-text
+        <slot></slot>
+      v-card-actions
+        v-spacer
+        v-btn.green--text.darken-1(flat="flat", @click.native="dialog = false") Disagree
+        v-btn.green--text.darken-1(flat="flat", @click.native="dialog = false") Agree

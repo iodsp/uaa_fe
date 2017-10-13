@@ -63,6 +63,18 @@ module.exports = {
         }
       },
       {
+        test: /\.scss$/,
+        loader: 'style!css!sass?sourceMap'
+      },
+      {
+        test: /\.jade$/,
+        loader: "jade"
+      },
+      {
+        test: /\.pug$/,
+        loader: 'pug'
+      },
+      {
         test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
         loader: 'url-loader',
         options: {
