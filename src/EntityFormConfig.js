@@ -362,8 +362,8 @@ let config = {
       {
         name: 'enable',
         title: '是否启用',
-        type: 'text',
-        value: '',
+        type: 'switch',
+        value: true,
         hint: '',
         rules: [],
         scope: ['add', 'edit']
@@ -371,8 +371,8 @@ let config = {
       {
         name: 'lock',
         title: '是否锁定',
-        type: 'text',
-        value: '',
+        type: 'switch',
+        value: false,
         hint: '',
         rules: [],
         scope: ['add', 'edit']
@@ -380,8 +380,8 @@ let config = {
       {
         name: 'expired',
         title: '是否过期',
-        type: 'text',
-        value: '',
+        type: 'switch',
+        value: false,
         hint: '',
         rules: [],
         scope: ['add', 'edit']

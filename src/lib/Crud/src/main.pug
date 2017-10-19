@@ -46,6 +46,7 @@ v-container(fluid )
                       v-slider(:label="item.title", v-bind:max="6000", v-model="addEntityInput[item.name]")
                     v-flex(xs3)
                       v-text-field(v-model="addEntityInput[item.name]", type="number")
+                  v-switch(v-else-if="item.type==='switch'", :label="item.title", v-model="addEntityInput[item.name]")
                   v-text-field(v-else, :label="item.title", required, :hint="item.hint", :rules="addRules[item.name]",
                   v-model="addEntityInput[item.name]")
 
@@ -73,6 +74,7 @@ v-container(fluid )
                       v-slider(:label="item.title", v-bind:max="6000", v-model="editEntityInput[item.name]")
                     v-flex(xs3)
                       v-text-field(v-model="editEntityInput[item.name]", type="number")
+                  v-switch(v-else-if="item.type==='switch'", :label="item.title", v-model="editEntityInput[item.name]")
                   v-text-field(v-else, :label="item.title", required, :hint="item.hint", :rules="editRules[item.name]",
                   v-model="editEntityInput[item.name]")
 

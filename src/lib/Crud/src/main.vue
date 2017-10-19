@@ -137,7 +137,16 @@
           return false
         }
 
-        EntityAdd(this.entity, this.addEntityInput, {
+        let input = {}
+        for (let item in this.addEntityInput) {
+          if (typeof this.addEntityInput[item] === 'boolean') {
+            input[item] = (this.addEntityInput[item]) ? 1 : 0
+          } else {
+            input[item] = this.addEntityInput[item]
+          }
+        }
+
+        EntityAdd(this.entity, input, {
           onSuccess: (data) => {
             this.getList()
             this.addDialog = false
@@ -161,7 +170,15 @@
           return false
         }
 
-        EntityUpdate(this.entity, this.editEntityInput, {
+        let input = {}
+        for (let item in this.editEntityInput) {
+          if (typeof this.editEntityInput[item] === 'boolean') {
+            input[item] = (this.editEntityInput[item]) ? 1 : 0
+          } else {
+            input[item] = this.editEntityInput[item]
+          }
+        }
+        EntityUpdate(this.entity, input, {
           onSuccess: (data) => {
             this.getList()
             this.editDialog = false
