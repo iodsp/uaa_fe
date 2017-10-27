@@ -4,8 +4,8 @@
 <script>
   import formConfigCommon from '../EntityFormConfig'
   import {EntityList} from '../lib/Utils/Entity'
-  import ResourceData from '../mock/data/resource'
-  let baseUrl = 'http://localhost:8080'
+  import config from '../config'
+  let baseUrl = config.baseUrl
   export default {
     data () {
       return {
@@ -25,14 +25,6 @@
           }
         })
       }
-    },
-    mounted () {
-      console.info(ResourceData)
-      let str = ''
-      ResourceData.map(item => {
-        str += 'INSERT INTO uc_role (name, desc) VALUES(\'' + item.id + '\', \'' + item.name + '\');\n'
-      })
-      console.info(str)
     },
     computed: {
       formConfig () {
@@ -64,7 +56,6 @@
                 item.data = resources
               }
             })
-            console.info(this.formConfig)
           }
         }, this.baseUrl)
         return formConfigCommon[this.entity]

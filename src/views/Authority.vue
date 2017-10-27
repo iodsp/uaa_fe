@@ -4,7 +4,8 @@
 <script>
   import formConfigCommon from '../EntityFormConfig'
   import {EntityList} from '../lib/Utils/Entity'
-  let baseUrl = 'http://localhost:8080'
+  import config from '../config'
+  let baseUrl = config.baseUrl
   export default {
     data () {
       return {

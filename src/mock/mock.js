@@ -47,7 +47,6 @@ export default {
 
     mock.onPost('/resource/update').reply((params) => {
       let info = JSON.parse(params.data)
-      console.info(info)
       _ResourceData.some(r => {
         if (r.id === info.id) {
           r.name = info.name

@@ -9,7 +9,7 @@ let config = {
         value: '',
         hint: '填写合法的变量命名规则形式的名称',
         rules: [
-          (v) => !!v || console.info(v) || '名称不能为空',
+          (v) => !!v || '名称不能为空',
           (v) => /^[A-Za-z]+[_-a-zA-Z0-9]*$/.test(v) || '名称命名不合法'
         ],
         scope: ['add']
@@ -21,7 +21,7 @@ let config = {
         value: '',
         hint: '',
         rules: [
-          (v) => !!v || console.info(v) || '名称不能为空',
+          (v) => !!v || '名称不能为空',
           (v) => /^[A-Za-z]+[_-a-zA-Z0-9]*$/.test(v) || '名称命名不合法'
         ],
         scope: ['edit'],
@@ -48,7 +48,7 @@ let config = {
         value: '',
         hint: '填写合法的变量命名规则形式的名称',
         rules: [
-          (v) => !!v || console.info(v) || '名称不能为空',
+          (v) => !!v || '名称不能为空',
           (v) => /^[A-Za-z]+[_-a-zA-Z0-9]*$/.test(v) || '名称命名不合法'
         ],
         scope: ['add']
@@ -60,7 +60,7 @@ let config = {
         value: '',
         hint: '',
         rules: [
-          (v) => !!v || console.info(v) || '名称不能为空',
+          (v) => !!v || '名称不能为空',
           (v) => /^[A-Za-z]+[_-a-zA-Z0-9]*$/.test(v) || '名称命名不合法'
         ],
         scope: ['edit'],
@@ -87,7 +87,7 @@ let config = {
         value: '',
         hint: '填写合法的变量命名规则形式的名称',
         rules: [
-          (v) => !!v || console.info(v) || '名称不能为空',
+          (v) => !!v || '名称不能为空',
           (v) => /^[A-Za-z]+[_-a-zA-Z0-9]*$/.test(v) || '名称命名不合法'
         ],
         scope: ['add']
@@ -153,7 +153,8 @@ let config = {
           'implicit',
           'authorization_code',
           'refresh_token',
-          'password'
+          'password',
+          'client_credentials'
         ]
       },
       {
@@ -229,7 +230,7 @@ let config = {
         value: '',
         hint: '填写合法的变量命名规则形式的名称',
         rules: [
-          (v) => !!v || console.info(v) || '名称不能为空',
+          (v) => !!v || '名称不能为空',
           (v) => /^[A-Za-z]+[_-a-zA-Z0-9]*$/.test(v) || '名称命名不合法'
         ],
         scope: ['add']
@@ -241,7 +242,7 @@ let config = {
         value: '',
         hint: '',
         rules: [
-          (v) => !!v || console.info(v) || '名称不能为空',
+          (v) => !!v || '名称不能为空',
           (v) => /^[A-Za-z]+[_-a-zA-Z0-9]*$/.test(v) || '名称命名不合法'
         ],
         scope: ['edit'],
@@ -268,7 +269,7 @@ let config = {
         value: '',
         hint: '填写合法的变量命名规则形式的名称',
         rules: [
-          (v) => !!v || console.info(v) || '名称不能为空',
+          (v) => !!v || '名称不能为空',
           (v) => /^[A-Za-z]+[_-a-zA-Z0-9]*$/.test(v) || '名称命名不合法'
         ],
         scope: ['add']
@@ -280,7 +281,7 @@ let config = {
         value: '',
         hint: '',
         rules: [
-          (v) => !!v || console.info(v) || '名称不能为空',
+          (v) => !!v || '名称不能为空',
           (v) => /^[A-Za-z]+[_-a-zA-Z0-9]*$/.test(v) || '名称命名不合法'
         ],
         scope: ['edit'],
@@ -319,7 +320,7 @@ let config = {
         value: '',
         hint: '填写合法的变量命名规则形式的名称',
         rules: [
-          (v) => !!v || console.info(v) || '名称不能为空',
+          (v) => !!v || '名称不能为空',
           (v) => /^[A-Za-z]+[_-a-zA-Z0-9]*$/.test(v) || '名称命名不合法'
         ],
         scope: ['add']
@@ -331,7 +332,7 @@ let config = {
         value: '',
         hint: '',
         rules: [
-          (v) => !!v || console.info(v) || '名称不能为空',
+          (v) => !!v || '名称不能为空',
           (v) => /^[A-Za-z]+[_-a-zA-Z0-9]*$/.test(v) || '名称命名不合法'
         ],
         scope: ['edit'],

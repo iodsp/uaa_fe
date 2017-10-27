@@ -3,7 +3,8 @@
 
 <script>
   import formConfigCommon from '../EntityFormConfig'
-  let baseUrl = 'http://localhost:8080'
+  import config from '../config'
+  let baseUrl = config.baseUrl
   export default {
     data () {
       return {
@@ -13,7 +14,6 @@
     },
     computed: {
       entity () {
-        console.info(this.$route.params.entity)
         return this.$route.params.entity
       },
       formConfig () {

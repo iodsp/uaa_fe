@@ -18,11 +18,13 @@ let menu = [
       { 'href': '/authority', 'title': '权限管理' },
       { 'href': '/user', 'title': '用户管理' }
     ]
-  },
+  }
+  /* ,
   { divider: true },
   { 'header': 'System' },
   { 'href': '/settings', 'title': 'Settings', 'icon': 'settings' },
   { 'href': '/login', 'icon': 'lock', 'title': 'Logout' }
+  */
 ]
 
 export default menu

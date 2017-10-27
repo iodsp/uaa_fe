@@ -30,7 +30,6 @@ export const EntityInfo = (name, params, callback, baseUrl) => {
   axios.get(`${baseUrl}/${name}/info`, {
     params: params
   }).then((res) => {
-    console.info(res)
     if (!res.data || res.status !== 200) {
       Message.error('网络错误')
       if (typeof callback.onError === 'function') {

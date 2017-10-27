@@ -5,7 +5,7 @@
   export default {
     data () {
       return {
-        clipped: true,
+        clipped: false,
         drawer: true,
         fixed: true,
         menus: menu,

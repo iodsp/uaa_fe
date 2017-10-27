@@ -1,12 +1,4 @@
 <template lang="pug">
-  div.hello
-    h1() {{msg}}
-    h2() xxxx
-    ul
-      li
-        a(href="https://vuejs.org" target="_blank") Core Docs
-    v-btn(@click.native="test")
-    io-crud
 </template>
 
 <script>
